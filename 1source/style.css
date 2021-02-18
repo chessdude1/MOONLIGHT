@@ -66,10 +66,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @font-face {
   font-family: "NoeDisplay-Medium";
-  font-style: normal;
-  font-weight: 500;
-  /* Браузер сначала попробует найти шрифт локально */
-  src: local("NoeDisplay-Medium"), url("/builiding/fonts/NoeDisplay-Medium.woff") format("woff2"), url("/builiding/fonts/NoeDisplay-Medium.ttf") format("ttf"); }
+  src: url(/fonts/NoeDisplay-Medium.ttf); }
 
 .mobile-menu {
   display: none; }

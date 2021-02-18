@@ -3,15 +3,19 @@
 
 @font-face {
     font-family: "NoeDisplay-Medium";
-    font-style: normal;
-    font-weight: 500;
-    /* Браузер сначала попробует найти шрифт локально */
-    src: local("NoeDisplay-Medium"),
-         /* Если не получилось, загрузит woff2 */
-         url("/builiding/fonts/NoeDisplay-Medium.woff") format("woff2"),
-         /* Если браузер не поддерживает woff2, загрузит woff */
-         url("/builiding/fonts/NoeDisplay-Medium.ttf") format("ttf");
-  }
+    src: url(/fonts/NoeDisplay-Medium.ttf);
+}
+// @font-face {
+//     font-family: "NoeDisplay-Medium";
+//     font-style: normal;
+//     font-weight: 500;
+//     /* Браузер сначала попробует найти шрифт локально */
+//     src: local("NoeDisplay-Medium"),
+//          /* Если не получилось, загрузит woff2 */
+//          url("/builiding/fonts/NoeDisplay-Medium.woff") format("woff2"),
+//          /* Если браузер не поддерживает woff2, загрузит woff */
+//          url("/builiding/fonts/NoeDisplay-Medium.ttf") format("ttf");
+//   }
 
 @mixin style_font_NoeDisplay($k) { 
     font-size: $k; 
