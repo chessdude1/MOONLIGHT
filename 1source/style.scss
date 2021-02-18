@@ -1,0 +1,1295 @@
+@import "zeroStyle.scss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+@font-face {
+    font-family: "NoeDisplay-Medium";
+    font-style: normal;
+    font-weight: 500;
+    /* Браузер сначала попробует найти шрифт локально */
+    src: local("NoeDisplay-Medium"),
+         /* Если не получилось, загрузит woff2 */
+         url("/builiding/fonts/NoeDisplay-Medium.woff") format("woff2"),
+         /* Если браузер не поддерживает woff2, загрузит woff */
+         url("/builiding/fonts/NoeDisplay-Medium.ttf") format("ttf");
+  }
+
+@mixin style_font_NoeDisplay($k) { 
+    font-size: $k; 
+    font-family: 'NoeDisplay-Medium'; // чтобы подключить @include fontz();//
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    color: #222831;
+}
+
+@mixin style_font_Monsterrat($f) { 
+    font-size: $f; 
+    font-family: 'Montserrat'; 
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    color: #222831;
+}
+
+.mobile-menu {
+    display: none;
+}
+@media (max-width: 760px) {
+    .mobile-menu {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 35px;
+        padding-left: 85vw;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 50px;
+        z-index: 9999999;
+    }
+    .mobile-menu__btn {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 30px;
+        cursor: pointer;
+        transition: .4s;
+    }
+    .mobile-menu__icon {
+        display: block;
+        position: relative;
+        background: black;
+        width: 90%;
+        height: 4px;
+        transition: .4s;
+    }
+    .mobile-menu__icon::after, .mobile-menu__icon::before {
+        content: "";
+        display: block;
+        position: absolute;
+        background: black;
+        width: 100%;
+        height: 4px;
+        transition: .4s;
+    }
+    .mobile-menu__icon::after {
+        top: 8px;
+    }
+    .mobile-menu__icon::before {
+        top: -8px;
+    }
+    .mobile-menu__container {
+        position: fixed;
+        text-align: center;
+        display: flex;
+        align-items: flex-start;
+        justify-content: start;
+        padding-left: 36.416666666666666vw;
+        top: 70px;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        height: 0;
+        opacity: 1;
+        transition: .5s;
+        overflow: hidden;
+        background-color: white;
+    }
+    .mobile-menu__list {
+        transition: .5s;
+        list-style: none;
+        padding-left: 0;
+        margin-top: 120px;
+    }
+    .mobile-menu__item {
+        font-size: 26px;
+        padding-top: 10px;
+        padding-bottom: 15px;
+    }
+    .mobile-menu__link {
+        text-decoration: none;
+        color: black;
+        @include style_font_NoeDisplay(20px);
+    }
+    .mobile-menu__checkbox {
+        display: none;
+    }
+    .mobile-menu__checkbox:checked ~ .mobile-menu__nav {
+        opacity: 1;
+    }
+    .mobile-menu__checkbox:checked ~ .mobile-menu__container {
+        height: 100%;
+    }
+    .mobile-menu__checkbox:checked ~ .mobile-menu__btn .mobile-menu__icon {
+        background: transparent;
+    }
+    .mobile-menu__checkbox:checked ~ .mobile-menu__btn .mobile-menu__icon::before, .mobile-menu__checkbox:checked ~ .mobile-menu__btn .mobile-menu__icon::after {
+        top: 0;
+    }
+    .mobile-menu__checkbox:checked ~ .mobile-menu__btn .mobile-menu__icon::after {
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+    }
+    .mobile-menu__checkbox:checked ~ .mobile-menu__btn .mobile-menu__icon::before {
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+}
+
+.wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+@media (max-width: 760px) {
+    .wrapper {
+        padding-left: 16px / 360px * 100%;
+        padding-right: 16px / 360px * 100%;
+        margin: 0 auto;
+    }
+}
+
+header {
+    padding-top: 23px;
+    display: flex;
+    align-items: center;
+    .headerLogo {
+        font-family: 'NoeDisplay-Medium';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 41px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #222831;
+    }
+}
+
+nav {
+    display: flex;
+    .header_nav_about{
+        padding-left: 3.75vw;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .header_nav_offers{
+        padding-left: 2.0833333333333335vw;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .header_nav_blog{
+        padding-left: 2.0833333333333335vw;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 20px;  
+    }
+}
+@media (max-width: 760px) {
+    nav {
+        display: none;
+    }
+}
+.header_telephone {
+    padding-left: 25.15625vw;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.header_contactUs {
+    padding-left: 5.9375vw;
+    .header_contactUs_button {
+        padding: 14px 45px 15px 46px;
+        border: 1px solid black;
+        background-color: white;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 155.9%;
+    }    
+}
+@media (max-width: 760px) {
+    .header_telephone  {
+        display: none;
+    }
+    .header_contactUs {
+        display: none;
+    }
+}
+
+.wrapper_for_breathe_block {
+    padding-top: 20px;
+    .block_Breathe {
+        margin-left: 0vw;
+        background-image: url('./img/breathe.png');
+        background-size: cover;
+        }
+        .block_Breathe_text {
+            text-align: center;
+            padding-top: 251px;
+            padding-bottom: 255px;
+            font-family: 'NoeDisplay-Medium'; 
+            font-style: normal;
+            font-weight: 500;
+            font-size: 72px;
+            line-height: 92px;
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.02em;
+            color: #FFFFFF;
+    }
+}
+
+@media (max-width: 760px) {
+    .wrapper_for_breathe_block {
+        padding-top: 10px;
+        .block_Breathe {
+            margin-left: 0vw;
+            background-size: cover; 
+            .block_Breathe_text {
+                padding-top: 159px;
+                padding-bottom: 178px;
+                font-family: 'NoeDisplay-Medium';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 40px;
+                line-height: 51px;
+                letter-spacing: 0.02em;
+            }
+        }
+    }
+}
+
+.Block_welcome {
+    display: flex;
+    padding-top: 200px;
+    .Block_welcome_left {
+        padding-left: (90px / 1400px) * 100%;
+    }
+        .Block_welcome_left_text {
+        font-family: 'NoeDisplay-Medium';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 40px;
+        line-height: 51px;
+        letter-spacing: 0.02em;
+        color: #222831;
+        }
+    .Block_welcome_right {
+        padding-left: (314px / 1400px) * 100%;
+        .Block_welcome_right_text {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 30px;
+            color: #222831;   
+        }
+    }
+}
+
+@media (max-width: 760px) {
+    .Block_welcome {
+        display: block;
+        padding-top: 80px;
+        .Block_welcome_left {
+            padding-left: 0vw;  
+            .Block_welcome_left_text {
+                font-family: 'NoeDisplay-Medium';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 24px;
+                line-height: 140%;
+                color: #222831;
+            }
+        }
+        .Block_welcome_right {
+            padding-left: 0vw;
+            padding-top: 15px; // текст не по макету //
+         }
+    }
+}
+
+.Map_Description {
+    display: flex;
+    padding-top: 200px;
+    .Map_Description_Map {
+        width: 50%;
+        height: 770px;
+    }
+
+    .Map_Description_text_block {
+        padding-top: 62px;
+        padding-left: (90px / 1400px) * 100%;
+        .Map_Description_text_head {
+        font-family: 'NoeDisplay-Medium';  
+        font-style: normal;
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 46px;
+        letter-spacing: 0.02em;
+        color: #222831;
+        }
+    }   
+
+    .Map_Description_text_MoscowCity {
+        padding-top: 40px;
+        font-family: 'Montserrat'; /* между p неправильный отступ */
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 30px;
+        align-items: center;
+        color: #222831;
+    }
+
+    .Map_Description_distance {
+        padding-top: 50px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 30px;
+        color: #222831;
+    }
+    .Map_Description_MoscowPark {
+        display: flex;
+    }
+    .Map_Description_GarageGallery {
+        display: flex;
+        padding-top: 35px;
+    }
+    .Map_Description_Mayakovskytheatre {
+        display: flex;
+        align-items: center;
+        padding-top: 35px;
+    }
+    .Map_Description_dash {
+        padding-left: 57px / 1400px * 100%; /*выровнять до конца */
+    }
+    .Map_Description_time {
+        padding-left: 50px / 1400px * 100%;
+
+    }
+}
+
+@media (max-width: 760px) {
+    .Map_Description {
+        display: block;
+        padding-top: 80px;
+        .Map_Description_Map {
+            width: 100%;
+            height: 347px;
+        }
+        .Map_Description_text_block {
+            padding-top: 30px;
+            padding-left: 0vw;
+            .Map_Description_text_head {
+                font-family: 'NoeDisplay-Medium';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 24px;
+                line-height: 140%;
+                color: #222831
+            }
+            .Map_Description_text_MoscowCity {
+                padding-top: 10px;
+            }
+            .Map_Description_distance {
+                padding-top: 20px;
+            }
+            .Map_Description_MoscowPark {
+                justify-content: space-between;
+            }
+            .Map_Description_GarageGallery {
+                justify-content: space-between;
+            }
+            .Map_Description_Mayakovskytheatre {
+                justify-content: space-between;
+            }
+        }
+    }
+}
+
+.advatages_block {
+    display: flex;
+    padding-top: 200px;
+    .advantages_text {
+        font-family: 'NoeDisplay-Medium';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 46px;
+        color: #222831;
+        padding-left: (90px / 1400px) * 100%;
+    }
+    .advatages_1_description {
+        padding-left: (351px / 1400px) * 100%;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        color: #222831;
+    }
+
+    .advatages_2_description {
+        padding-left: (100px / 1400px) * 100%;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        color: #222831;
+    }
+    .advatages_1_description ul li {
+        list-style: disc;
+    }
+    .advatages_2_description ul li {
+        list-style: disc;
+    }
+}
+@media (max-width: 760px) {
+    .advatages_block {
+        display: block;
+        padding-top: 80px;
+        .advantages_text {
+            padding-left: 0vw;
+            @include style_font_NoeDisplay(24px);
+        }
+        .advatages_1_description {
+            padding-top: 10px;
+            padding-left: 1.6927083333333333vw;
+            li {
+                margin-bottom: 20px;
+            }
+        }
+        .advatages_2_description {
+            padding-left: 1.6927083333333333vw;
+            li {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+}
+
+.swiper-container {
+    padding-top: 200px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+.swiper-slide {
+    background: #000;
+    width: 70%;
+}
+.swiper-button-next, .swiper-button-prev {
+    color: white;
+}
+
+
+.Apartments_block {
+    display: flex;
+    padding-top: 200px;
+    .Apartmets_block_img {
+        padding-left: 90px / 1400px * 100%;
+        width: 50%;
+    }
+    .Apartmemts_block_description_block {
+        padding-top: 163px;
+        padding-left: 90px / 1400px * 100%;
+        .Apartmemts_block_head {
+            font-family: 'NoeDisplay-Medium'; 
+            font-style: normal;
+            font-weight: 500;
+            font-size: 36px;
+            line-height: 46px;
+            letter-spacing: 0.02em;
+            color: #222831;
+        }
+        .Apartments_block_subHead {
+            padding-top: 5px;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 30px;
+            color: #222831;
+        }
+        .Apartments_block_text {
+            padding-top: 35px;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 25px;
+            color: #222831;
+        }
+        .Apartments_block_find_price {
+            padding-top: 33px
+        }
+            .Find_out_the_price {
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 25px;
+                padding-top: 33px;
+                text-transform: uppercase;
+                text-decoration: underline;
+                background-color: white;    
+            }
+    }
+}
+
+@media (max-width: 760px){
+    .swiper-container{
+        padding-top: 80px;
+    }
+}
+
+@media (max-width: 760px) {
+    .Apartments_block {
+        display: block;
+        padding-top: 100px;
+        .Apartmets_block_img {
+            width: 100%;
+            padding-left: 0vw;
+        }
+        .Apartmemts_block_description_block {
+            padding-top: 30px;
+            padding-left: 0vw;
+            .Apartments_block_text {
+                padding-top: 20px;
+            }
+            .Apartmemts_block_head {
+                @include style_font_NoeDisplay(24px);
+            }
+            .Apartments_block_subHead {
+                @include style_font_Monsterrat(18px);
+            }
+            .Apartments_block_find_price {
+                .Find_out_the_price {
+                    padding-top: 0px; 
+                }    
+            }      
+        }      
+    } 
+}
+
+
+.Penthouses_block {
+    padding-top: 96px;
+    display: flex;
+    .Penthouses_block_description {
+        padding-left: 90px / 1400px * 100%;
+        padding-top: 205px;
+        .Penthouses_block_head {
+            font-family: 'NoeDisplay-Medium';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 36px;
+            line-height: 46px;
+            letter-spacing: 0.02em;
+            color: #222831;
+        }
+        .Penthouses_block_subhead {
+            padding-top: 5px;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 30px;
+            color: #222831;
+        }
+        .Penthouses_block_text {
+            padding-top: 35px;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 25px;
+            color: #222831;
+        }
+        .Penthouses_block_find_price {
+            padding-top: 35px;
+            .Find_out_the_price {
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 16px;                //подчеркивание с другим отступом //
+                line-height: 155.9%;
+                text-transform: uppercase;
+                color: #222831;
+                text-decoration:  underline;
+                background-color: white;
+
+            }
+        }
+    }
+    
+}
+
+@media (max-width: 760px) {
+    .Penthouses_block {
+    display: block;
+    padding-top: 80px;
+        .Penthouses_block_description {
+            padding-top: 0px;
+            padding-left: 0px;
+            .Penthouses_block_head {
+                font-family: 'NoeDisplay-Medium';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 24px;
+                line-height: 140%;
+                color: #222831;
+            }
+            .Penthouses_block_subhead {
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 18px;
+                line-height: 22px;
+                color: #222831;  
+            }
+            .Penthouses_block_text {
+                padding-top: 15px;
+            }
+        }
+    }
+}
+
+.Penthouses_block_image {
+    padding-left: 221px / 1400px * 100%;
+}
+
+@media (max-width: 760px) {
+    .Penthouses_block_image {
+        padding-top: 80px;
+        width: 100%;
+        padding-left: 0vw;
+        height: auto;
+    }
+}
+
+.Luxury_block {
+    align-items: flex-start;
+    padding-top: 200px;
+    display: flex;
+    .Luxury_block_description {
+        padding-left: 90px / 1400px * 100%;
+        font-family: 'NoeDisplay-Medium';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 40px;
+        line-height: 51px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.02em;
+        color: #222831;
+        width: 600px / 1400px * 100%;
+    }
+    .Luxury_block_eco_terrace {
+        padding-left: 184px /1400px * 100%;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 30px;
+        color: #222831;
+    }
+
+}
+@media (max-width: 760px) {
+    .Luxury_block {
+        padding-top: 80px;
+        display: block;
+        .Luxury_block_description {
+            display: block;
+            @include style_font_NoeDisplay(24px);
+            padding-left: 0vw;
+            width: 100%;
+        }
+        .Luxury_block_eco_terrace {
+            @include style_font_Monsterrat(16px);
+            padding-left: 0vw;
+            padding-top: 15px;
+        }
+    }
+}
+.Block_cover_img_sofa {
+    padding-top: 100px;
+}
+
+@media (max-width: 760px) {
+    .Block_cover_img_sofa {
+        padding-top: 30px;
+        width: 100%;
+    }
+}
+
+.Technical_parametrs_block {
+    display: flex;
+    padding-top: 200px;
+
+}
+.Technical_parametrs_text {
+    font-family: 'NoeDisplay-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 51px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    color: #222831;
+
+}
+
+.Technical_parametrs_text_container {
+    padding-left: 90px / 1400px * 100%;
+}
+.Technical_parametrs_grid_container {
+    padding-left: 109px / 1400px * 100%;
+}
+
+.Technical_parametrs_grid {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 155.9%;
+    color: #222831;
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: repeat(3, auto);
+    grid-column-gap: 90px;
+    grid-row-gap: 50px;
+    .subhead_text {
+        padding-top: 10px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 25px;
+        color: #222831;
+    }
+}
+
+@media (min-width: 761px) {
+    .accordion {
+        display: none;
+    }
+}
+
+@media (max-width: 760px) {
+    .Technical_parametrs_block {
+        display: block;
+        padding-top: 80px;
+    }
+    .Technical_parametrs_text_container {
+        padding-left: 0vw;
+        @include style_font_NoeDisplay(24px);
+    }
+    .Technical_parametrs_grid_container {
+        display: none;
+    }
+
+    .accordion {
+        padding-top: 15px;
+    }
+    .tab input, .tab-content { display: none; }
+   .tab {
+    @include style_font_Monsterrat(16px);   // Работают только первые 3 //
+    border-top: 1px solid #E0E0E0; 
+    color: black; 
+    
+   }
+   .tab-title {
+    padding-top: 15px; 
+    padding-bottom: 15px;
+    display: block; 
+    text-transform: uppercase; 
+    font-weight: bold; 
+    cursor: pointer; 
+   }
+   .tab-title::after {
+    content: '+'; 
+    float: right; 
+   }
+   .tab-content {
+    padding: 20px 15px;
+   }
+   .tab :checked + .tab-title {
+    background-color: white; 
+    border-radius: 3px 3px 0 0; 
+    color: #fff; 
+   }
+   .tab :checked + .tab-title::after {
+    content: '−'; 
+    color: black;
+   }
+   .tab :checked ~ .tab-content {
+    display: block; 
+    text-align: left;
+   }
+
+   .tab:last-child {
+       border-bottom: 1px solid  #E0E0E0;
+   }
+}
+
+.header1 {
+        margin-top: 220px;
+        background: #fff;
+        overflow: hidden;
+        height: 65px;
+        position: relative;
+        margin-bottom: 120px;
+        div {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          overflow: hidden;
+          width: 100%;
+          height: 65px;
+          transform: translate(100%, 0);
+        }
+      
+        $duration: 30s;
+      
+        .ticker-wrapper__first-half,
+        .ticker-wrapper__second-half {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          position: absolute;
+          top: 0;
+          right: 0;
+          animation: ticker $duration infinite linear forwards;
+        }
+      
+        .ticker-wrapper__second-half {
+          animation: $duration ticker $duration/2 infinite linear forwards;
+        }
+      }
+      
+      @keyframes ticker {
+        0% {
+          transform: translate(100%, 0);
+        }
+        50% {
+          transform: translate(0, 0);
+        }
+      
+        100% {
+          transform: translate(-100%, 0);
+        }
+}
+
+
+@media (max-width: 760px) {
+    .header1 {
+      margin-top: 100px ;
+      background: #fff;
+      overflow: hidden;
+      height: 65px;
+      position: relative;
+      margin-bottom: 0px;
+      div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        overflow: hidden;
+        width: 100%;
+        height: 65px;
+        transform: translate(100%, 0);
+        img {
+            width: 220px;
+          }
+      }
+  
+      $duration: 30s;
+  
+      .ticker-wrapper__first-half,
+      .ticker-wrapper__second-half {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        animation: ticker $duration infinite linear forwards;
+        width: 800px;
+      }
+  
+      .ticker-wrapper__second-half {
+        animation: $duration ticker $duration/2 infinite linear forwards;
+      }
+    }
+  
+    @keyframes ticker {
+      0% {
+        transform: translate(100%, 0);
+      }
+  
+      50% {
+        transform: translate(0, 0);
+      }
+  
+      100% {
+        transform: translate(-100%, 0);
+      }
+    }
+}
+
+.Stay_informed_head {
+    font-family: 'NoeDisplay-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 51px;
+    letter-spacing: 0.02em;
+    color: #222831;
+}
+
+.Stay_informed_block {
+    padding-top: 250px;
+}
+
+.Stay_informed_subhead {
+    padding-top: 5px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
+    color: #222831;
+}
+
+.Stay_informed_button {
+    padding-top: 40px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 25px;
+    padding-top: 33px;
+    text-transform: uppercase;
+    text-decoration: underline;
+    background-color: white; 
+}
+@media (max-width: 760px) {
+    .Stay_informed_block {
+        padding-top: 100px;
+    }
+    .Stay_informed_head {
+        @include style_font_NoeDisplay(24px);
+    }
+    .Stay_informed_subhead {
+        @include style_font_Monsterrat(18px);
+    }
+    .Stay_informed_button {
+        padding-top: 20px;
+        @include style_font_Monsterrat(16px);
+    }
+}
+
+.Pic_award_block {
+    display: flex;
+    padding-top: 57px;
+    .Pic_award_bigPic_block {
+        width: 600px / 1400px * 100%;
+    }
+    .Pic_award_date {
+        padding-top: 30px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 30px;
+        color: #222831;
+    }
+    .Pic_award_text {
+        padding-top: 10px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 30px;
+        color: #222831;
+    }
+}
+
+.Pic_award_column_container {
+    padding-left: 100px;
+    width: 800px /1400px *100%;
+
+    .Pic_award_column_grid {
+    display: grid;
+    grid-template-columns:  1fr 1.4fr; //переделать адаптивно //
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-column-gap: 40px ;
+    grid-row-gap: 51px;
+    }
+    
+}
+
+.Pic_award_head {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 30px;
+    color: #222831;
+}
+
+.Pic_award_column_subhead {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
+    color: #222831;
+}
+
+@media (max-width: 760px) {
+    .Pic_award_block {
+        display: block;
+        padding-top: 40px;
+        .Pic_award_bigPic_block {
+            width: 100%;
+        }
+        .Pic_award_date {
+            padding-top: 10px;
+            @include style_font_Monsterrat(14px);
+        }
+        .Pic_award_text {
+            @include style_font_Monsterrat(18px);
+        }
+    }
+    
+    .Pic_award_column_container {
+        padding-left: 0vw;
+        padding-top: 50px;
+        width: 100%;
+    
+    }
+    .Pic_award_column_container {
+        .Pic_award_column_grid {
+            display: block;
+            .Pic_award_column_top_picture {
+                width: 100%;
+            }
+            .Pic_award_column_middle_picture { //из за height не 100 % //
+                width: 100%;
+                padding-top: 50px;
+            }
+            .Pic_award_column_bottom_picture {
+                width: 100%;
+                padding-top: 50px;
+            }
+        }
+    }
+    .Pic_award_head {
+        padding-top: 10px;
+        @include style_font_Monsterrat(14px);
+    }
+    .Pic_award_column_subhead {
+        @include style_font_Monsterrat(18px);
+    }
+
+    
+}
+
+
+.Request_contact_block {
+    padding-top: 200px;
+    display: flex;
+    .Request_container {
+        margin-left: 90px /1400px * 100%;
+        width: 410px / 1400px * 100%;
+    }
+    .Request_head {
+        font-family: 'NoeDisplay-Medium';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 40px;
+        line-height: 51px;
+        letter-spacing: 0.02em;
+        color: #222831;
+    }
+    .Name_request {
+        padding-top: 34px;
+        border-bottom: 1px solid #000;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 30px;
+        color: #717171;
+
+    }
+    .Telephone_request {
+        padding-top: 30px;
+        border-bottom: 1px solid #000;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 30px;
+        color: #717171;
+    }
+    .checkbox_container {
+        padding-top: 26px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 12px;
+        color: #000000;
+    }
+    .Request_send {
+        padding-top: 40px;
+    }
+    .Request_send_button {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 155.9%;
+        color: #000000;
+        padding: 15px 69px 15px 69px;
+        background-color: white;
+        border: solid black 1px;
+    }
+
+}
+
+@media (max-width:760px) {
+    .Request_contact_block {
+        display: block;
+        padding-top: 80px;
+        .Request_container {
+            margin-left: 0vw;
+            width: 100%;
+        }
+        .Request_head {
+            @include style_font_NoeDisplay(40px);
+        }
+    }
+}
+
+.Contact_block {
+    padding-left: 200px /1400px * 100%;
+    display: flex;
+    padding-top: 100px;
+    .Contact_block_number_email {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        color: #222831;
+    }
+    .subhead_Contact_block_number {
+        padding-top: 20px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        color: #222831;
+    }
+    .Contact_address_head {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        color: #222831;
+    }
+    .subhead_Contact_address {
+        padding-top: 20px;
+        text-decoration: underline;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 155.9%;
+        text-transform: uppercase;
+        color: #222831;
+    }
+    .Contact_block_address {
+        padding-left: 36px;
+    }
+}
+
+@media (max-width:760px) {
+    .Contact_block {
+        display: block;
+        padding-left: 0vw;
+        .Contact_block_address {
+            padding-top: 40px;
+            padding-left: 0vw;
+        }
+    }
+
+}
+
+
+a {
+    color: black;
+}
+
+
+footer {
+    background: #393E46;
+    background-size: cover;
+    height: 100px;
+    margin-top: 150px;
+}
+
+.wrapper_development_NameCompany {
+    max-width: 1400px;
+    margin: 0 auto;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
+
+.wrapper_development_container {
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width:760px) {
+    footer {
+        margin-top: 80px;
+    }
+}
+

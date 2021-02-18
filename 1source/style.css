@@ -1,0 +1,1154 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  border: 0; }
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  /* Все измеряется по принципу border-box */
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+:focus, :active {
+  outline: none; }
+
+a:focus, a:active {
+  outline: none; }
+
+nav, footer, aside {
+  display: block; }
+
+/* nav, footer aside блочные */
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  /* не изменяет размеры текста и блоков в зависимости от браузера */ }
+
+input, button, textarea {
+  font-family: inherit; }
+
+/* данные блоки наследуют семейство шрифта*/
+input::-ms-clear {
+  display: none; }
+
+/* Удаляет крест ввода в IE */
+button {
+  cursor: pointer; }
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0; }
+
+a, a:visited {
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: none; }
+
+ul li {
+  list-style: none; }
+
+img {
+  vertical-align: top; }
+
+/* Убирает лишник отступы у объектов, дефолтные анимации у курсоров и подчеркивания в опрделенных браузерах*/
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400; }
+
+@font-face {
+  font-family: "NoeDisplay-Medium";
+  font-style: normal;
+  font-weight: 500;
+  /* Браузер сначала попробует найти шрифт локально */
+  src: local("NoeDisplay-Medium"), url("/builiding/fonts/NoeDisplay-Medium.woff") format("woff2"), url("/builiding/fonts/NoeDisplay-Medium.ttf") format("ttf"); }
+
+.mobile-menu {
+  display: none; }
+
+@media (max-width: 760px) {
+  .mobile-menu {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 35px;
+    padding-left: 85vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    z-index: 9999999; }
+  .mobile-menu__btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 30px;
+    cursor: pointer;
+    transition: .4s; }
+  .mobile-menu__icon {
+    display: block;
+    position: relative;
+    background: black;
+    width: 90%;
+    height: 4px;
+    transition: .4s; }
+  .mobile-menu__icon::after, .mobile-menu__icon::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background: black;
+    width: 100%;
+    height: 4px;
+    transition: .4s; }
+  .mobile-menu__icon::after {
+    top: 8px; }
+  .mobile-menu__icon::before {
+    top: -8px; }
+  .mobile-menu__container {
+    position: fixed;
+    text-align: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    padding-left: 36.416666666666666vw;
+    top: 70px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    height: 0;
+    opacity: 1;
+    transition: .5s;
+    overflow: hidden;
+    background-color: white; }
+  .mobile-menu__list {
+    transition: .5s;
+    list-style: none;
+    padding-left: 0;
+    margin-top: 120px; }
+  .mobile-menu__item {
+    font-size: 26px;
+    padding-top: 10px;
+    padding-bottom: 15px; }
+  .mobile-menu__link {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-family: 'NoeDisplay-Medium';
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    color: #222831; }
+  .mobile-menu__checkbox {
+    display: none; }
+  .mobile-menu__checkbox:checked ~ .mobile-menu__nav {
+    opacity: 1; }
+  .mobile-menu__checkbox:checked ~ .mobile-menu__container {
+    height: 100%; }
+  .mobile-menu__checkbox:checked ~ .mobile-menu__btn .mobile-menu__icon {
+    background: transparent; }
+  .mobile-menu__checkbox:checked ~ .mobile-menu__btn .mobile-menu__icon::before, .mobile-menu__checkbox:checked ~ .mobile-menu__btn .mobile-menu__icon::after {
+    top: 0; }
+  .mobile-menu__checkbox:checked ~ .mobile-menu__btn .mobile-menu__icon::after {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg); }
+  .mobile-menu__checkbox:checked ~ .mobile-menu__btn .mobile-menu__icon::before {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg); } }
+
+.wrapper {
+  max-width: 1400px;
+  margin: 0 auto; }
+
+@media (max-width: 760px) {
+  .wrapper {
+    padding-left: 4.44444%;
+    padding-right: 4.44444%;
+    margin: 0 auto; } }
+
+header {
+  padding-top: 23px;
+  display: flex;
+  align-items: center; }
+  header .headerLogo {
+    font-family: 'NoeDisplay-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 41px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #222831; }
+
+nav {
+  display: flex; }
+  nav .header_nav_about {
+    padding-left: 3.75vw;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px; }
+  nav .header_nav_offers {
+    padding-left: 2.0833333333333335vw;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px; }
+  nav .header_nav_blog {
+    padding-left: 2.0833333333333335vw;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px; }
+
+@media (max-width: 760px) {
+  nav {
+    display: none; } }
+
+.header_telephone {
+  padding-left: 25.15625vw;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px; }
+
+.header_contactUs {
+  padding-left: 5.9375vw; }
+  .header_contactUs .header_contactUs_button {
+    padding: 14px 45px 15px 46px;
+    border: 1px solid black;
+    background-color: white;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 155.9%; }
+
+@media (max-width: 760px) {
+  .header_telephone {
+    display: none; }
+  .header_contactUs {
+    display: none; } }
+
+.wrapper_for_breathe_block {
+  padding-top: 20px; }
+  .wrapper_for_breathe_block .block_Breathe {
+    margin-left: 0vw;
+    background-image: url("./img/breathe.png");
+    background-size: cover; }
+  .wrapper_for_breathe_block .block_Breathe_text {
+    text-align: center;
+    padding-top: 251px;
+    padding-bottom: 255px;
+    font-family: 'NoeDisplay-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 72px;
+    line-height: 92px;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #FFFFFF; }
+
+@media (max-width: 760px) {
+  .wrapper_for_breathe_block {
+    padding-top: 10px; }
+    .wrapper_for_breathe_block .block_Breathe {
+      margin-left: 0vw;
+      background-size: cover; }
+      .wrapper_for_breathe_block .block_Breathe .block_Breathe_text {
+        padding-top: 159px;
+        padding-bottom: 178px;
+        font-family: 'NoeDisplay-Medium';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 40px;
+        line-height: 51px;
+        letter-spacing: 0.02em; } }
+
+.Block_welcome {
+  display: flex;
+  padding-top: 200px; }
+  .Block_welcome .Block_welcome_left {
+    padding-left: 6.42857%; }
+  .Block_welcome .Block_welcome_left_text {
+    font-family: 'NoeDisplay-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 51px;
+    letter-spacing: 0.02em;
+    color: #222831; }
+  .Block_welcome .Block_welcome_right {
+    padding-left: 22.42857%; }
+    .Block_welcome .Block_welcome_right .Block_welcome_right_text {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 30px;
+      color: #222831; }
+
+@media (max-width: 760px) {
+  .Block_welcome {
+    display: block;
+    padding-top: 80px; }
+    .Block_welcome .Block_welcome_left {
+      padding-left: 0vw; }
+      .Block_welcome .Block_welcome_left .Block_welcome_left_text {
+        font-family: 'NoeDisplay-Medium';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 140%;
+        color: #222831; }
+    .Block_welcome .Block_welcome_right {
+      padding-left: 0vw;
+      padding-top: 15px; } }
+
+.Map_Description {
+  display: flex;
+  padding-top: 200px; }
+  .Map_Description .Map_Description_Map {
+    width: 50%;
+    height: 770px; }
+  .Map_Description .Map_Description_text_block {
+    padding-top: 62px;
+    padding-left: 6.42857%; }
+    .Map_Description .Map_Description_text_block .Map_Description_text_head {
+      font-family: 'NoeDisplay-Medium';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 36px;
+      line-height: 46px;
+      letter-spacing: 0.02em;
+      color: #222831; }
+  .Map_Description .Map_Description_text_MoscowCity {
+    padding-top: 40px;
+    font-family: 'Montserrat';
+    /* между p неправильный отступ */
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 30px;
+    align-items: center;
+    color: #222831; }
+  .Map_Description .Map_Description_distance {
+    padding-top: 50px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 30px;
+    color: #222831; }
+  .Map_Description .Map_Description_MoscowPark {
+    display: flex; }
+  .Map_Description .Map_Description_GarageGallery {
+    display: flex;
+    padding-top: 35px; }
+  .Map_Description .Map_Description_Mayakovskytheatre {
+    display: flex;
+    align-items: center;
+    padding-top: 35px; }
+  .Map_Description .Map_Description_dash {
+    padding-left: 4.07143%;
+    /*выровнять до конца */ }
+  .Map_Description .Map_Description_time {
+    padding-left: 3.57143%; }
+
+@media (max-width: 760px) {
+  .Map_Description {
+    display: block;
+    padding-top: 80px; }
+    .Map_Description .Map_Description_Map {
+      width: 100%;
+      height: 347px; }
+    .Map_Description .Map_Description_text_block {
+      padding-top: 30px;
+      padding-left: 0vw; }
+      .Map_Description .Map_Description_text_block .Map_Description_text_head {
+        font-family: 'NoeDisplay-Medium';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 140%;
+        color: #222831; }
+      .Map_Description .Map_Description_text_block .Map_Description_text_MoscowCity {
+        padding-top: 10px; }
+      .Map_Description .Map_Description_text_block .Map_Description_distance {
+        padding-top: 20px; }
+      .Map_Description .Map_Description_text_block .Map_Description_MoscowPark {
+        justify-content: space-between; }
+      .Map_Description .Map_Description_text_block .Map_Description_GarageGallery {
+        justify-content: space-between; }
+      .Map_Description .Map_Description_text_block .Map_Description_Mayakovskytheatre {
+        justify-content: space-between; } }
+
+.advatages_block {
+  display: flex;
+  padding-top: 200px; }
+  .advatages_block .advantages_text {
+    font-family: 'NoeDisplay-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 46px;
+    color: #222831;
+    padding-left: 6.42857%; }
+  .advatages_block .advatages_1_description {
+    padding-left: 25.07143%;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #222831; }
+  .advatages_block .advatages_2_description {
+    padding-left: 7.14286%;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #222831; }
+  .advatages_block .advatages_1_description ul li {
+    list-style: disc; }
+  .advatages_block .advatages_2_description ul li {
+    list-style: disc; }
+
+@media (max-width: 760px) {
+  .advatages_block {
+    display: block;
+    padding-top: 80px; }
+    .advatages_block .advantages_text {
+      padding-left: 0vw;
+      font-size: 24px;
+      font-family: 'NoeDisplay-Medium';
+      font-style: normal;
+      font-weight: 500;
+      line-height: 140%;
+      color: #222831; }
+    .advatages_block .advatages_1_description {
+      padding-top: 10px;
+      padding-left: 1.6927083333333333vw; }
+      .advatages_block .advatages_1_description li {
+        margin-bottom: 20px; }
+    .advatages_block .advatages_2_description {
+      padding-left: 1.6927083333333333vw; }
+      .advatages_block .advatages_2_description li {
+        margin-bottom: 20px; } }
+
+.swiper-container {
+  padding-top: 200px;
+  width: 100%;
+  margin: 0 auto; }
+
+.swiper-slide {
+  background: #000;
+  width: 70%; }
+
+.swiper-button-next, .swiper-button-prev {
+  color: white; }
+
+.Apartments_block {
+  display: flex;
+  padding-top: 200px; }
+  .Apartments_block .Apartmets_block_img {
+    padding-left: 6.42857%;
+    width: 50%; }
+  .Apartments_block .Apartmemts_block_description_block {
+    padding-top: 163px;
+    padding-left: 6.42857%; }
+    .Apartments_block .Apartmemts_block_description_block .Apartmemts_block_head {
+      font-family: 'NoeDisplay-Medium';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 36px;
+      line-height: 46px;
+      letter-spacing: 0.02em;
+      color: #222831; }
+    .Apartments_block .Apartmemts_block_description_block .Apartments_block_subHead {
+      padding-top: 5px;
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 30px;
+      color: #222831; }
+    .Apartments_block .Apartmemts_block_description_block .Apartments_block_text {
+      padding-top: 35px;
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 25px;
+      color: #222831; }
+    .Apartments_block .Apartmemts_block_description_block .Apartments_block_find_price {
+      padding-top: 33px; }
+    .Apartments_block .Apartmemts_block_description_block .Find_out_the_price {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 25px;
+      padding-top: 33px;
+      text-transform: uppercase;
+      text-decoration: underline;
+      background-color: white; }
+
+@media (max-width: 760px) {
+  .swiper-container {
+    padding-top: 80px; } }
+
+@media (max-width: 760px) {
+  .Apartments_block {
+    display: block;
+    padding-top: 100px; }
+    .Apartments_block .Apartmets_block_img {
+      width: 100%;
+      padding-left: 0vw; }
+    .Apartments_block .Apartmemts_block_description_block {
+      padding-top: 30px;
+      padding-left: 0vw; }
+      .Apartments_block .Apartmemts_block_description_block .Apartments_block_text {
+        padding-top: 20px; }
+      .Apartments_block .Apartmemts_block_description_block .Apartmemts_block_head {
+        font-size: 24px;
+        font-family: 'NoeDisplay-Medium';
+        font-style: normal;
+        font-weight: 500;
+        line-height: 140%;
+        color: #222831; }
+      .Apartments_block .Apartmemts_block_description_block .Apartments_block_subHead {
+        font-size: 18px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        line-height: 140%;
+        color: #222831; }
+      .Apartments_block .Apartmemts_block_description_block .Apartments_block_find_price .Find_out_the_price {
+        padding-top: 0px; } }
+
+.Penthouses_block {
+  padding-top: 96px;
+  display: flex; }
+  .Penthouses_block .Penthouses_block_description {
+    padding-left: 6.42857%;
+    padding-top: 205px; }
+    .Penthouses_block .Penthouses_block_description .Penthouses_block_head {
+      font-family: 'NoeDisplay-Medium';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 36px;
+      line-height: 46px;
+      letter-spacing: 0.02em;
+      color: #222831; }
+    .Penthouses_block .Penthouses_block_description .Penthouses_block_subhead {
+      padding-top: 5px;
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 30px;
+      color: #222831; }
+    .Penthouses_block .Penthouses_block_description .Penthouses_block_text {
+      padding-top: 35px;
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 25px;
+      color: #222831; }
+    .Penthouses_block .Penthouses_block_description .Penthouses_block_find_price {
+      padding-top: 35px; }
+      .Penthouses_block .Penthouses_block_description .Penthouses_block_find_price .Find_out_the_price {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 155.9%;
+        text-transform: uppercase;
+        color: #222831;
+        text-decoration: underline;
+        background-color: white; }
+
+@media (max-width: 760px) {
+  .Penthouses_block {
+    display: block;
+    padding-top: 80px; }
+    .Penthouses_block .Penthouses_block_description {
+      padding-top: 0px;
+      padding-left: 0px; }
+      .Penthouses_block .Penthouses_block_description .Penthouses_block_head {
+        font-family: 'NoeDisplay-Medium';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 140%;
+        color: #222831; }
+      .Penthouses_block .Penthouses_block_description .Penthouses_block_subhead {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        color: #222831; }
+      .Penthouses_block .Penthouses_block_description .Penthouses_block_text {
+        padding-top: 15px; } }
+
+.Penthouses_block_image {
+  padding-left: 15.78571%; }
+
+@media (max-width: 760px) {
+  .Penthouses_block_image {
+    padding-top: 80px;
+    width: 100%;
+    padding-left: 0vw;
+    height: auto; } }
+
+.Luxury_block {
+  align-items: flex-start;
+  padding-top: 200px;
+  display: flex; }
+  .Luxury_block .Luxury_block_description {
+    padding-left: 6.42857%;
+    font-family: 'NoeDisplay-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 51px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    color: #222831;
+    width: 42.85714%; }
+  .Luxury_block .Luxury_block_eco_terrace {
+    padding-left: 13.14286%;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 30px;
+    color: #222831; }
+
+@media (max-width: 760px) {
+  .Luxury_block {
+    padding-top: 80px;
+    display: block; }
+    .Luxury_block .Luxury_block_description {
+      display: block;
+      font-size: 24px;
+      font-family: 'NoeDisplay-Medium';
+      font-style: normal;
+      font-weight: 500;
+      line-height: 140%;
+      color: #222831;
+      padding-left: 0vw;
+      width: 100%; }
+    .Luxury_block .Luxury_block_eco_terrace {
+      font-size: 16px;
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 500;
+      line-height: 140%;
+      color: #222831;
+      padding-left: 0vw;
+      padding-top: 15px; } }
+
+.Block_cover_img_sofa {
+  padding-top: 100px; }
+
+@media (max-width: 760px) {
+  .Block_cover_img_sofa {
+    padding-top: 30px;
+    width: 100%; } }
+
+.Technical_parametrs_block {
+  display: flex;
+  padding-top: 200px; }
+
+.Technical_parametrs_text {
+  font-family: 'NoeDisplay-Medium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 51px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  color: #222831; }
+
+.Technical_parametrs_text_container {
+  padding-left: 6.42857%; }
+
+.Technical_parametrs_grid_container {
+  padding-left: 7.78571%; }
+
+.Technical_parametrs_grid {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 155.9%;
+  color: #222831;
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: 90px;
+  grid-row-gap: 50px; }
+  .Technical_parametrs_grid .subhead_text {
+    padding-top: 10px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 25px;
+    color: #222831; }
+
+@media (min-width: 761px) {
+  .accordion {
+    display: none; } }
+
+@media (max-width: 760px) {
+  .Technical_parametrs_block {
+    display: block;
+    padding-top: 80px; }
+  .Technical_parametrs_text_container {
+    padding-left: 0vw;
+    font-size: 24px;
+    font-family: 'NoeDisplay-Medium';
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    color: #222831; }
+  .Technical_parametrs_grid_container {
+    display: none; }
+  .accordion {
+    padding-top: 15px; }
+  .tab input, .tab-content {
+    display: none; }
+  .tab {
+    font-size: 16px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    color: #222831;
+    border-top: 1px solid #E0E0E0;
+    color: black; }
+  .tab-title {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: block;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer; }
+  .tab-title::after {
+    content: '+';
+    float: right; }
+  .tab-content {
+    padding: 20px 15px; }
+  .tab :checked + .tab-title {
+    background-color: white;
+    border-radius: 3px 3px 0 0;
+    color: #fff; }
+  .tab :checked + .tab-title::after {
+    content: '−';
+    color: black; }
+  .tab :checked ~ .tab-content {
+    display: block;
+    text-align: left; }
+  .tab:last-child {
+    border-bottom: 1px solid  #E0E0E0; } }
+
+.header1 {
+  margin-top: 220px;
+  background: #fff;
+  overflow: hidden;
+  height: 65px;
+  position: relative;
+  margin-bottom: 120px; }
+  .header1 div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    height: 65px;
+    transform: translate(100%, 0); }
+  .header1 .ticker-wrapper__first-half,
+  .header1 .ticker-wrapper__second-half {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    animation: ticker 30s infinite linear forwards; }
+  .header1 .ticker-wrapper__second-half {
+    animation: 30s ticker 15s infinite linear forwards; }
+
+@keyframes ticker {
+  0% {
+    transform: translate(100%, 0); }
+  50% {
+    transform: translate(0, 0); }
+  100% {
+    transform: translate(-100%, 0); } }
+
+@media (max-width: 760px) {
+  .header1 {
+    margin-top: 100px;
+    background: #fff;
+    overflow: hidden;
+    height: 65px;
+    position: relative;
+    margin-bottom: 0px; }
+    .header1 div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      overflow: hidden;
+      width: 100%;
+      height: 65px;
+      transform: translate(100%, 0); }
+      .header1 div img {
+        width: 220px; }
+    .header1 .ticker-wrapper__first-half,
+    .header1 .ticker-wrapper__second-half {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      right: 0;
+      animation: ticker 30s infinite linear forwards;
+      width: 800px; }
+    .header1 .ticker-wrapper__second-half {
+      animation: 30s ticker 15s infinite linear forwards; }
+  @keyframes ticker {
+    0% {
+      transform: translate(100%, 0); }
+    50% {
+      transform: translate(0, 0); }
+    100% {
+      transform: translate(-100%, 0); } } }
+
+.Stay_informed_head {
+  font-family: 'NoeDisplay-Medium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 51px;
+  letter-spacing: 0.02em;
+  color: #222831; }
+
+.Stay_informed_block {
+  padding-top: 250px; }
+
+.Stay_informed_subhead {
+  padding-top: 5px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  color: #222831; }
+
+.Stay_informed_button {
+  padding-top: 40px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 25px;
+  padding-top: 33px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  background-color: white; }
+
+@media (max-width: 760px) {
+  .Stay_informed_block {
+    padding-top: 100px; }
+  .Stay_informed_head {
+    font-size: 24px;
+    font-family: 'NoeDisplay-Medium';
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    color: #222831; }
+  .Stay_informed_subhead {
+    font-size: 18px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    color: #222831; }
+  .Stay_informed_button {
+    padding-top: 20px;
+    font-size: 16px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    color: #222831; } }
+
+.Pic_award_block {
+  display: flex;
+  padding-top: 57px; }
+  .Pic_award_block .Pic_award_bigPic_block {
+    width: 42.85714%; }
+  .Pic_award_block .Pic_award_date {
+    padding-top: 30px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 30px;
+    color: #222831; }
+  .Pic_award_block .Pic_award_text {
+    padding-top: 10px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
+    color: #222831; }
+
+.Pic_award_column_container {
+  padding-left: 100px;
+  width: 57.14286%; }
+  .Pic_award_column_container .Pic_award_column_grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-column-gap: 40px;
+    grid-row-gap: 51px; }
+
+.Pic_award_head {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 30px;
+  color: #222831; }
+
+.Pic_award_column_subhead {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  color: #222831; }
+
+@media (max-width: 760px) {
+  .Pic_award_block {
+    display: block;
+    padding-top: 40px; }
+    .Pic_award_block .Pic_award_bigPic_block {
+      width: 100%; }
+    .Pic_award_block .Pic_award_date {
+      padding-top: 10px;
+      font-size: 14px;
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 500;
+      line-height: 140%;
+      color: #222831; }
+    .Pic_award_block .Pic_award_text {
+      font-size: 18px;
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 500;
+      line-height: 140%;
+      color: #222831; }
+  .Pic_award_column_container {
+    padding-left: 0vw;
+    padding-top: 50px;
+    width: 100%; }
+  .Pic_award_column_container .Pic_award_column_grid {
+    display: block; }
+    .Pic_award_column_container .Pic_award_column_grid .Pic_award_column_top_picture {
+      width: 100%; }
+    .Pic_award_column_container .Pic_award_column_grid .Pic_award_column_middle_picture {
+      width: 100%;
+      padding-top: 50px; }
+    .Pic_award_column_container .Pic_award_column_grid .Pic_award_column_bottom_picture {
+      width: 100%;
+      padding-top: 50px; }
+  .Pic_award_head {
+    padding-top: 10px;
+    font-size: 14px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    color: #222831; }
+  .Pic_award_column_subhead {
+    font-size: 18px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    color: #222831; } }
+
+.Request_contact_block {
+  padding-top: 200px;
+  display: flex; }
+  .Request_contact_block .Request_container {
+    margin-left: 6.42857%;
+    width: 29.28571%; }
+  .Request_contact_block .Request_head {
+    font-family: 'NoeDisplay-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 51px;
+    letter-spacing: 0.02em;
+    color: #222831; }
+  .Request_contact_block .Name_request {
+    padding-top: 34px;
+    border-bottom: 1px solid #000;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 30px;
+    color: #717171; }
+  .Request_contact_block .Telephone_request {
+    padding-top: 30px;
+    border-bottom: 1px solid #000;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 30px;
+    color: #717171; }
+  .Request_contact_block .checkbox_container {
+    padding-top: 26px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    color: #000000; }
+  .Request_contact_block .Request_send {
+    padding-top: 40px; }
+  .Request_contact_block .Request_send_button {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 155.9%;
+    color: #000000;
+    padding: 15px 69px 15px 69px;
+    background-color: white;
+    border: solid black 1px; }
+
+@media (max-width: 760px) {
+  .Request_contact_block {
+    display: block;
+    padding-top: 80px; }
+    .Request_contact_block .Request_container {
+      margin-left: 0vw;
+      width: 100%; }
+    .Request_contact_block .Request_head {
+      font-size: 40px;
+      font-family: 'NoeDisplay-Medium';
+      font-style: normal;
+      font-weight: 500;
+      line-height: 140%;
+      color: #222831; } }
+
+.Contact_block {
+  padding-left: 14.28571%;
+  display: flex;
+  padding-top: 100px; }
+  .Contact_block .Contact_block_number_email {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #222831; }
+  .Contact_block .subhead_Contact_block_number {
+    padding-top: 20px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #222831; }
+  .Contact_block .Contact_address_head {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #222831; }
+  .Contact_block .subhead_Contact_address {
+    padding-top: 20px;
+    text-decoration: underline;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 155.9%;
+    text-transform: uppercase;
+    color: #222831; }
+  .Contact_block .Contact_block_address {
+    padding-left: 36px; }
+
+@media (max-width: 760px) {
+  .Contact_block {
+    display: block;
+    padding-left: 0vw; }
+    .Contact_block .Contact_block_address {
+      padding-top: 40px;
+      padding-left: 0vw; } }
+
+a {
+  color: black; }
+
+footer {
+  background: #393E46;
+  background-size: cover;
+  height: 100px;
+  margin-top: 150px; }
+
+.wrapper_development_NameCompany {
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #FFFFFF; }
+
+.wrapper_development_container {
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between; }
+
+@media (max-width: 760px) {
+  footer {
+    margin-top: 80px; } }
